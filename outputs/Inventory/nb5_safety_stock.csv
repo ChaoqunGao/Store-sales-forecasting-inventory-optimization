@@ -1,0 +1,7 @@
+Model,Lead Time (days),Sigma (RMSE),Safety Stock (units)
+Prophet,3,360.63,1027.4
+Prophet,7,360.63,1569.4
+Prophet,14,360.63,2219.5
+SARIMAX+onpromotion,3,470.49,1340.4
+SARIMAX+onpromotion,7,470.49,2047.5
+SARIMAX+onpromotion,14,470.49,2895.6

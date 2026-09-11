@@ -1,0 +1,10 @@
+,Value
+sigma_prophet,360.63
+sigma_sarimax,470.49
+mean_daily_demand,2541.0
+annual_demand,927451.0
+prophet_safety_stock_7day,1569.4
+prophet_rop_7day,19356.1
+sarimax_safety_stock_7day,2047.5
+sarimax_rop_7day,19834.2
+eoq_base_case,13619.0

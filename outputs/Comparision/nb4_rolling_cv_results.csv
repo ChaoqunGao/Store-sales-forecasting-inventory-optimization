@@ -1,0 +1,13 @@
+Window,Model,RMSE,MAE,MAPE%
+W1_baseline,SARIMA,418.06,275.81,12.65
+W1_baseline,SARIMAX+onpromotion,397.56,281.2,12.33
+W1_baseline,Prophet,307.15,242.77,11.43
+W2_holiday_dense,SARIMA,915.04,672.21,25.93
+W2_holiday_dense,SARIMAX+onpromotion,772.38,555.83,24.47
+W2_holiday_dense,Prophet,571.7,398.66,18.57
+W3_holiday_light,SARIMA,458.08,283.24,22.0
+W3_holiday_light,SARIMAX+onpromotion,451.57,282.5,22.11
+W3_holiday_light,Prophet,287.12,209.22,11.3
+W4_early_promo,SARIMA,260.45,179.88,9.17
+W4_early_promo,SARIMAX+onpromotion,260.45,179.88,9.17
+W4_early_promo,Prophet,276.56,202.34,10.89
