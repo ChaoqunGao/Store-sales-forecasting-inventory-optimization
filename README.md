@@ -1,6 +1,6 @@
 # Demand Forecasting & Inventory Optimization: A Statistical Deep Dive
 
-A time series forecasting and inventory optimization pipeline built on the Kaggle Store Sales (Favorita) dataset. The core analysis is deliberately scoped to a single SKU-location pair to demonstrate PhD-level statistical rigor rather than broad model coverage, with a lightweight batch diagnostic layer (50 series) added to show scalability awareness without diluting that focus.
+A time series forecasting and inventory optimization pipeline built on the Kaggle Store Sales (Favorita) dataset. The core analysis is deliberately scoped to a single SKU-location pair to prioritize statistical rigor and defensible reasoning over broad model coverage, with a lightweight batch diagnostic layer (50 series) added to show scalability awareness without diluting that focus.
 
 ## Why this project is scoped the way it is
 
