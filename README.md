@@ -1,12 +1,12 @@
 # Demand Forecasting & Inventory Optimization: A Statistical Deep Dive
 
-A single-SKU, single-location time series forecasting and inventory optimization pipeline built on the Kaggle Store Sales (Favorita) dataset — designed to demonstrate PhD-level statistical rigor rather than broad model coverage.
+A time series forecasting and inventory optimization pipeline built on the Kaggle Store Sales (Favorita) dataset. The core analysis is deliberately scoped to a single SKU-location pair to demonstrate PhD-level statistical rigor rather than broad model coverage, with a lightweight batch diagnostic layer (50 series) added to show scalability awareness without diluting that focus.
 
 ## Why this project is scoped the way it is
 
 Most public forecasting portfolios optimize for breadth: many models, many store/product combinations, a leaderboard-style comparison. This project takes the opposite approach. It focuses on **one SKU-location pair** (Store 1 / GROCERY I) and asks a harder question of it: not just "which model wins," but *why*, under what conditions, and with what statistical justification.
 
-This scoping choice reflects my background — a Management Science PhD with a research focus on stochastic inventory optimization (newsvendor models under yield uncertainty) and hands-on supply chain internship experience. The goal here is to show the kind of reasoning depth that background brings to a forecasting problem, rather than to demonstrate familiarity with as many algorithms as possible. No gradient-boosted tree models (LightGBM, XGBoost) were added for this reason — they would broaden the toolkit without adding statistical depth relevant to the story this project tells.
+The goal is to show reasoning depth on a forecasting problem — grounding model choice in statistical evidence and being explicit about what each result does and doesn't support — rather than to demonstrate familiarity with as many algorithms as possible. No gradient-boosted tree models (LightGBM, XGBoost) were added for this reason — they would broaden the toolkit without adding statistical depth relevant to the story this project tells.
 
 ## Pipeline overview
 
@@ -34,7 +34,7 @@ These findings replaced an earlier, simpler heuristic ("if a holiday falls in th
 
 **Inventory optimization (NB5):** Safety Stock, Reorder Point, and EOQ are computed with lead time treated as a scenario variable (3/7/14 days) and demand uncertainty (σ) sourced from the rolling CV mean RMSE, tying the inventory layer directly to the forecasting layer's demonstrated error rather than an assumed constant. EOQ is presented as a sensitivity table rather than a single point estimate.
 
-A note on scope: this project intentionally does not incorporate a newsvendor framing, despite that being a core piece of my PhD research. My dissertation work combines *yield* uncertainty with *demand* uncertainty; this project only models demand uncertainty. Forcing a newsvendor lens on here would overstate what the pipeline actually captures.
+A note on scope: this project intentionally does not incorporate a newsvendor framing. Newsvendor models typically combine *yield* uncertainty with *demand* uncertainty, while this pipeline only models demand uncertainty. Forcing a newsvendor lens on here would overstate what the pipeline actually captures.
 
 **Scalability diagnostics (NB6):** To acknowledge scalability without diluting the project's depth-first identity, NB6 runs lightweight diagnostics — ADF testing, STL seasonal strength, IQR-based outlier flagging, and `auto_arima` order selection — across 50 series rather than building a full parallel batch-modeling pipeline.
 
