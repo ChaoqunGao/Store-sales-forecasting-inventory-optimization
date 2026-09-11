@@ -10,6 +10,8 @@ Instead of spreading across many series, it stays focused on just one SKU-locati
 
 The whole point of this narrower scope is to actually show reasoning — to ground every model choice in statistical evidence, and to be upfront about what each result does and doesn't prove, rather than just piling on more algorithms to look thorough. That's also why gradient-boosted tree models like LightGBM or XGBoost were deliberately left out here: adding them would have made the toolkit look broader, but it wouldn't have added any real statistical depth to the story this project is trying to tell.
 
+Note: this is not a Kaggle competition submission — there's no leaderboard score or test-set prediction file here. The goal is to walk through the statistical reasoning behind a forecasting and inventory decision, not to optimize for a single accuracy metric.
+
 ## Pipeline overview
 
 | Notebook | Purpose |
@@ -35,8 +37,6 @@ The whole point of this narrower scope is to actually show reasoning — to grou
 These findings replaced an earlier, simpler heuristic ("if a holiday falls in the forecast window, use Prophet") with a more defensible framework based on training history length and promotion variance — a better reflection of *why* one model outperforms another, not just *that* it does.
 
 **Inventory optimization (NB5):** Safety Stock, Reorder Point, and EOQ are computed with lead time treated as a scenario variable (3/7/14 days) and demand uncertainty (σ) sourced from the rolling CV mean RMSE, tying the inventory layer directly to the forecasting layer's demonstrated error rather than an assumed constant. EOQ is presented as a sensitivity table rather than a single point estimate.
-
-A note on scope: this project intentionally does not incorporate a newsvendor framing. Newsvendor models typically combine *yield* uncertainty with *demand* uncertainty, while this pipeline only models demand uncertainty. Forcing a newsvendor lens on here would overstate what the pipeline actually captures.
 
 **Scalability diagnostics (NB6):** To acknowledge scalability without diluting the project's depth-first identity, NB6 runs lightweight diagnostics — ADF testing, STL seasonal strength, IQR-based outlier flagging, and `auto_arima` order selection — across 50 series rather than building a full parallel batch-modeling pipeline.
 
