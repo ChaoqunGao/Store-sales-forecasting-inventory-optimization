@@ -4,9 +4,11 @@ A time series forecasting and inventory optimization pipeline built on the Kaggl
 
 ## Why this project is scoped the way it is
 
-Most public forecasting portfolios optimize for breadth: many models, many store/product combinations, a leaderboard-style comparison. This project takes the opposite approach. It focuses on **one SKU-location pair** (Store 1 / GROCERY I) and asks a harder question of it: not just "which model wins," but *why*, under what conditions, and with what statistical justification.
+A lot of public forecasting portfolios try to impress by going wide — throwing in a bunch of models, running them across dozens or hundreds of store/product combinations, and putting together a leaderboard that shows which one "wins." This project deliberately goes the other way.
 
-The goal is to show reasoning depth on a forecasting problem — grounding model choice in statistical evidence and being explicit about what each result does and doesn't support — rather than to demonstrate familiarity with as many algorithms as possible. No gradient-boosted tree models (LightGBM, XGBoost) were added for this reason — they would broaden the toolkit without adding statistical depth relevant to the story this project tells.
+Instead of spreading across many series, it stays focused on just one SKU-location pair (Store 1 / GROCERY I) and digs into it properly. The question being asked isn't just "which model performs best on this data" — it's why that model wins, under what specific conditions it wins, and what statistical evidence actually backs that up. That's a harder, slower question to answer than a leaderboard comparison, but it's a more honest one.
+
+The whole point of this narrower scope is to actually show reasoning — to ground every model choice in statistical evidence, and to be upfront about what each result does and doesn't prove, rather than just piling on more algorithms to look thorough. That's also why gradient-boosted tree models like LightGBM or XGBoost were deliberately left out here: adding them would have made the toolkit look broader, but it wouldn't have added any real statistical depth to the story this project is trying to tell.
 
 ## Pipeline overview
 
